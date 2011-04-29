@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>osascript -e "
+	tell application \"Opera\" 
+	set theURL to \"file://$(echo $TM_FILEPATH | sed 's,[\\"],\\&amp;,g')\" 
+	set theURL to «class ktxt» of ( (theURL as string) as record) 
+	activate
+	Open URL theURL
+end tell"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Open In Opera</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.html</string>
+	<key>uuid</key>
+	<string>FC51BAD2-9F6D-4BDF-8094-284F442DAEDE</string>
+</dict>
+</plist>
